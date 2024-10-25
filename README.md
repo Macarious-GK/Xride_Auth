@@ -9,7 +9,7 @@
 
 # Backend APIs
 
-- /activate/<str:uid>/<str:token>/
+- /auth/activate/<str:uid>/<str:token>/
 
 - /users/activation/
 data = {
@@ -17,7 +17,7 @@ data = {
     'token': token
         }
 
-- /password/reset/confirm/<str:uid>/<str:token>/
+- /auth/password/reset/confirm/<str:uid>/<str:token>/
 
 - /users/reset_password_confirm/
 data = {
@@ -65,7 +65,7 @@ POST /users/resend_activation/
 - Return Bad Request if the user is Active or the email is not registered
 
 ## API to activate user 
-GET /activate/<str:uid>/<str:token>/
+GET /auth/activate/<str:uid>/<str:token>/
 POST /users/activation/
 
 - These apis are for server use to get the uid and token to activate the user, frist api is sent to the user and by clicking the backend make a POST request api "/users/activation/" with data contain uid & token
@@ -87,7 +87,7 @@ body:
 {
     "email":"",
 }
-GET or POST /password/reset/confirm/<str:uid>/<str:token>/ "UNDER WORK"
+GET or POST /auth/password/reset/confirm/<str:uid>/<str:token>/ "UNDER WORK"
 POST /users/reset_password_confirm/
 
 - the first API take email and send a link to user email to reset the password.

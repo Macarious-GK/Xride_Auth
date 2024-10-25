@@ -1,25 +1,25 @@
 # Frontend APIs
 
-/users/
-/users/me/
-/users/resend_activation/
-/users/set_password/
-/users/reset_password/
-/users/reset_password_confirm/
+- /users/
+- /users/me/
+- /users/resend_activation/
+- /users/set_password/
+- /users/reset_password/
+- /users/reset_password_confirm/
 
 # Backend APIs
 
-/activate/<str:uid>/<str:token>/
+- /activate/<str:uid>/<str:token>/
 
-/users/activation/
+- /users/activation/
 data = {
     'uid': uid,
     'token': token
         }
 
-/password/reset/confirm/<str:uid>/<str:token>/
+- /password/reset/confirm/<str:uid>/<str:token>/
 
-/users/reset_password_confirm/
+- /users/reset_password_confirm/
 data = {
     "uid": "",
     "token": "",

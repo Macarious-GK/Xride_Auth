@@ -43,8 +43,8 @@ POST /users/
     "re_password": "",
 }
 
-then an activation link will be sent to the user's email, after clicking on it the user account is activated
-the server send link activation email and success activation email
+- Then an activation link will be sent to the user's email, after clicking on it the user account is activated
+- The server send link activation email and success activation email
 
 ## API to Retrive user 
 POST-PUT-DELETE /users/me/
@@ -60,15 +60,15 @@ POST /users/resend_activation/
     "email": "",
 }
 
-this resend activation email if the user in not active and the email is in use.
-the server send link activation email and success activation email
-Return Bad Request if the user is Active or the email is not registered
+- This resend activation email if the user in not active and the email is in use.
+- The server send link activation email and success activation email
+- Return Bad Request if the user is Active or the email is not registered
 
 ## API to activate user 
 GET /activate/<str:uid>/<str:token>/
 POST /users/activation/
 
-These apis are for server use to get the uid and token to activate the user, frist api is sent to the user and by clicking the backend make a POST request api "/users/activation/" with data contain uid & token
+- These apis are for server use to get the uid and token to activate the user, frist api is sent to the user and by clicking the backend make a POST request api "/users/activation/" with data contain uid & token
 
 ## API to Set Password
 POST /users/set_password/
@@ -79,7 +79,7 @@ body:
     "re_new_password":"",
     "current_password":""
 }
-Use this endpoint to change user password
+- Use this endpoint to change user password
 
 ## API to Reset Password (NEED WORK WITH FRONTEND)
 POST /users/reset_password/
@@ -90,8 +90,8 @@ body:
 GET or POST /password/reset/confirm/<str:uid>/<str:token>/ "UNDER WORK"
 POST /users/reset_password_confirm/
 
-the first API take email and send a link to user email to reset the password.
-Then user use the second API "GET Request" this used by frontend to send a POST request to the thired API with this data:
+- the first API take email and send a link to user email to reset the password.
+- Then user use the second API "GET Request" this used by frontend to send a POST request to the thired API with this data:
 
 data = {
     "uid": "",
@@ -109,6 +109,7 @@ body:
     "password": ""
 }
 - /jwt/refresh/
+body:
 {
     "refresh": "refresh_Token",
 }

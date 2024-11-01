@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'Auth_V0',
     'djoser',
+    'storages',
+
 ]
 
 MIDDLEWARE = [
@@ -110,7 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Cairo'
 
 USE_I18N = True
 
@@ -120,7 +122,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
@@ -128,6 +129,38 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #--------------------------------------------------------------------
+
+
+
+STATIC_URL = 'static/'
+# STATIC_ROOT = BASE_DIR / "static"
+# MEDIA_URL = 'media/'
+# MEDIA_ROOT = BASE_DIR / 'media'
+
+AWS_ACCESS_KEY_ID = 'AKIAZ5TC5AWIC67RDMOE '
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'djangoxridemedia'
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_S3_REGION_NAME = 'us-east-2'
+AWS_S3_SIGNATURE_NAME = 's3v4',
+AWS_S3_FILE_OVERWRITE = False
+
+# AWS_DEFAULT_ACL =  None
+# AWS_S3_VERIFY = True
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
+# MEDIA_URL = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}amazonaws.com/'
+
+
+STORAGES = {
+    'default': {
+        'BACKEND': 'storages.backends.s3boto3.S3StaticStorage',
+    },
+    
+    'staticfiles': {
+        'BACKEND': 'storages.backends.s3boto3.S3StaticStorage',
+    }
+}
+
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
@@ -150,7 +183,7 @@ DEFAULT_FROM_EMAIL = 'makariousgadelkarim@gmail.com'
 
 from datetime import timedelta
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),  # Short-lived access token for security
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),  # Short-lived access token for security
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),  # Refresh token for longer sessions
     'AUTH_HEADER_TYPES': ('JWT',),  # Set the auth header type to 'JWT'
 }

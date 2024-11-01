@@ -118,3 +118,20 @@ body:
 {
 	"token": ""
 }
+
+
+
+## -------------
+DELETE user/delete-photo/
+photo_type["personal_photo", "national_id_photo", "licence_photo"]
+body:{
+    "photo_type": "licence_photo"
+}
+
+POST user/upload-photo/
+body:{
+    "personal_photo": "File",
+    "national_id_photo": "File",
+    "licence_photo": "File"
+
+}
